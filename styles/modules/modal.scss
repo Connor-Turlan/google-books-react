@@ -1,0 +1,137 @@
+@use "../partials/palette";
+@use "../partials/devices";
+@use "../partials/typography";
+@use "../partials/border";
+
+@use "../modules/defaults.scss";
+
+.modal {
+	display: grid;
+	grid-template-rows: 40px 1fr;
+
+	width: 700px;
+
+	padding: 20px;
+	border-radius: 20px;
+
+	background-color: palette.$light;
+
+	font-family: typography.$font;
+	font-weight: 100;
+
+	text-align: justify;
+	text-justify: inter-word;
+
+	@include devices.phone {
+		height: calc(100vh - 40px);
+		width: calc(100vw - 20px);
+		padding: 20px 20px;
+		border-radius: 0px;
+	}
+
+	@include border.card;
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 200px;
+
+		margin-top: 20px;
+
+		overflow-y: auto;
+
+		@include devices.phone {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	& header {
+		margin-right: 40px;
+	}
+
+	/* & section {
+		@include devices.phone {
+			text-align: justify;
+		}
+	} */
+
+	&__title {
+		font-weight: 100;
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+
+	&__author {
+		font-weight: 100;
+		font-size: 16px;
+		text-transform: capitalize;
+	}
+
+	&__desc {
+		width: 400px;
+		height: 300px;
+		padding: 20px;
+
+		@include devices.phone {
+			height: 40vh;
+			width: 100%;
+			grid-template-columns: 1fr;
+		}
+
+		font-size: 14px;
+
+		overflow-y: auto;
+
+		&:hover {
+			outline: 1px solid palette.$accent;
+		}
+	}
+
+	&__img {
+		height: 200px;
+		border-radius: 10px;
+
+		object-fit: contain;
+
+		@include devices.phone {
+			display: none;
+		}
+	}
+
+	&__exit {
+		justify-self: end;
+
+		width: 40px;
+		height: 40px;
+		border: none;
+		border-radius: 50%; //10px;
+
+		background-color: palette.$accent;
+
+		&:hover {
+			background-color: palette.$accent-hover;
+		}
+
+		&::after {
+			content: "\002716";
+		}
+	}
+
+	&__bg {
+		@include defaults.flex-center;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		z-index: bottom;
+
+		width: 100vw;
+		height: 100vh;
+
+		margin: 0px;
+
+		background-color: rgba(0, 0, 0, 0.2);
+
+		@include defaults.hidden;
+	}
+}

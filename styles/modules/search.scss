@@ -1,0 +1,122 @@
+@use "../partials/palette";
+@use "../partials/typography";
+@use "../partials/border";
+@use "../partials/devices";
+
+@use "../modules/defaults.scss";
+
+.search {
+	@include defaults.flex-center;
+	flex-wrap: wrap;
+
+	width: 660px;
+
+	border-radius: 20px;
+
+	@include devices.phone {
+		position: fixed;
+		top: 0px;
+
+		width: 100vw;
+		border-radius: 0px;
+	}
+
+	background-color: palette.$light;
+
+	font-family: typography.$font;
+	color: palette.$font-colour;
+
+	@include border.search;
+
+	&--top {
+		position: fixed;
+		top: 0px;
+
+		border-radius: 0px 0px 20px 20px;
+
+		@include devices.phone {
+			border-radius: 0px;
+
+			& > .search__header {
+				display: none;
+			}
+		}
+	}
+
+	&__header {
+		text-align: center;
+		width: 100%;
+
+		margin: 20px;
+
+		font-size: 32px;
+		font-weight: 100;
+	}
+
+	&__query {
+		width: 400px;
+		height: 40px;
+
+		margin: 10px;
+
+		border-radius: 10px;
+
+		font-family: inherit;
+		font-size: 24px;
+		color: inherit;
+
+		background-color: palette.$font-bg;
+
+		@include devices.phone {
+			font-size: 24px;
+			max-width: 60vw;
+
+			margin: 5px;
+		}
+	}
+
+	&__submit {
+		width: 200px;
+		height: 50px;
+
+		margin: 10px;
+
+		border-radius: 10px;
+
+		font-family: inherit;
+		color: palette.$accent-font;
+		font-size: 30px;
+		font-weight: 100;
+
+		background-color: palette.$accent;
+
+		@include devices.phone {
+			font-size: 18px;
+			width: 30vw;
+
+			margin: 5px;
+		}
+
+		&--wait {
+			content: "waiting";
+
+			background-color: palette.$dark;
+		}
+	}
+
+	&__help {
+		display: inline-block;
+		margin: 0px;
+		padding: 20px;
+
+		list-style: none;
+
+		& li {
+			margin: 10px;
+		}
+
+		&--hidden {
+			display: none;
+		}
+	}
+}

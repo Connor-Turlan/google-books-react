@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import style from "./App.module.scss";
+import SearchBar from "./components/SearchBar/";
+import Results from "./containers/Results/";
+import { searchAPI } from "./scripts/api";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [isResultActive, setResultActive] = useState(false);
+	const [query, setQuery] = useState("");
+	const [books, setBooks] = useState([]);
+
+	const updateResults = (books) => {
+		setBooks(books);
+	};
+
+	useEffect(() => {
+		searchAPI(query, updateResults);
+		setResultActive(query.length > 0);
+	}, [query]);
+
+	useEffect(() => {
+		setResultActive(books.length > 0);
+	}, [books]);
+
+	return (
+		<div className={style.App}>
+			<SearchBar setQuery={setQuery} />
+			{isResultActive && <Results cards={books} />}
+		</div>
+	);
 }
 
 export default App;
