@@ -1,6 +1,6 @@
 import style from "./SearchBar.module.scss";
 
-const SearchBar = ({ setQuery }) => {
+const SearchBar = ({ active, setQuery, waiting }) => {
 	let query = "";
 
 	const updateLocalQuery = (event) => {
@@ -12,8 +12,20 @@ const SearchBar = ({ setQuery }) => {
 		setQuery(query);
 	};
 
+	const searchStyle = active
+		? [style.Search, style.Search_top]
+		: [style.Search];
+
+	const searchButtonStyle = waiting
+		? [style.Search__submit, style.Search__submit_wait]
+		: [style.Search__submit];
+
+	const searchHelpStyle = !active
+		? [style.Search__help]
+		: [style.Search__help, style.Search__help_hidden];
+
 	return (
-		<form className={style.Search}>
+		<form className={searchStyle.join(" ")}>
 			<h1 className={style.Search__title}>Google Books - Search</h1>
 			<input
 				className={style.Search__query}
@@ -23,14 +35,14 @@ const SearchBar = ({ setQuery }) => {
 				onChange={updateLocalQuery}
 			/>
 			<input
-				className={style.Search__submit}
+				className={searchButtonStyle.join(" ")}
 				type="submit"
 				name="search"
 				id="search-button"
-				value="Search"
+				value={!waiting ? "Search" : "Loading..."}
 				onClick={handleSubmit}
 			/>
-			<ul className={style.Search__help}>
+			<ul className={searchHelpStyle.join(" ")}>
 				<li>
 					Enter a query including title, author, year, or any search
 					query that relates to the books you wish to see.

@@ -39,7 +39,7 @@
 		@include devices.desktop {
 			grid-column: span 4;
 		}
-		align-self: start;
+		align-self: flex-start;
 
 		width: fit-content;
 		height: 60px;

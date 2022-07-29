@@ -22,7 +22,7 @@ export function resetBookCount() {
 export function remapJSON(response) {
 	currentlyLoadedBooks += response.items.length;
 	return response.items.map((book) => {
-		let { volumeInfo, saleInfo, ...otherProps } = book;
+		let { volumeInfo, saleInfo } = book;
 		return {
 			title: volumeInfo.title,
 			authors:
@@ -35,8 +35,7 @@ export function remapJSON(response) {
 			description: volumeInfo.description || "Description unavailable.",
 			releaseDate:
 				volumeInfo.publishedDate || "Release date unavailable.",
-			country:
-				regionNames.of(book.saleInfo.country) || "Country unavailable.",
+			country: regionNames.of(saleInfo.country) || "Country unavailable.",
 			language:
 				languageNames.of(volumeInfo.language) ||
 				"Language unavailable.",
@@ -49,8 +48,8 @@ export function remapJSON(response) {
 	});
 }
 
-// poll the google books api given a specific query.
-export async function searchAPI(query, setResults) {
+// validate a query.
+function validateQuery(query) {
 	if (query === "") {
 		return false;
 	}
@@ -58,6 +57,13 @@ export async function searchAPI(query, setResults) {
 	// reset starting index if the query is unexpectedly changed.
 	if (query !== lastQuery) currentlyLoadedBooks = 0;
 	lastQuery = query;
+
+	return true;
+}
+
+// poll the google books api given a specific query.
+export async function searchAPI(query, updateResults) {
+	if (!validateQuery(query)) return false;
 
 	const response = await fetch(
 		`https://www.googleapis.com/books/v1/volumes?q=${encodeURI(
@@ -68,7 +74,7 @@ export async function searchAPI(query, setResults) {
 
 	if (response.ok) {
 		let json = await response.json();
-		setResults(remapJSON(json));
+		updateResults(remapJSON(json));
 		return true;
 	} else {
 		showErrorMessage(response.status);

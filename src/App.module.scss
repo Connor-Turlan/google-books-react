@@ -2,10 +2,6 @@
 @use "/styles/partials/devices";
 
 @use "/styles/modules/defaults.scss";
-@use "/styles/modules/search.scss";
-@use "/styles/modules/card.scss";
-@use "/styles/modules/results.scss";
-@use "/styles/modules/modal.scss";
 
 .App {
 	@include defaults.flex-center;

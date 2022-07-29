@@ -28,7 +28,7 @@
 
 	@include border.search;
 
-	&--top {
+	&_top {
 		position: fixed;
 		top: 0px;
 
@@ -97,7 +97,7 @@
 			margin: 5px;
 		}
 
-		&--wait {
+		&_wait {
 			content: "waiting";
 
 			background-color: palette.$dark;
@@ -115,7 +115,7 @@
 			margin: 10px;
 		}
 
-		&--hidden {
+		&_hidden {
 			display: none;
 		}
 	}
