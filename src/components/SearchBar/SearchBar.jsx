@@ -1,6 +1,7 @@
 import style from "./SearchBar.module.scss";
 
 const SearchBar = ({ active, setQuery, waiting }) => {
+	// TODO: change query to be pulled from the parent.
 	let query = "";
 
 	const updateLocalQuery = (event) => {

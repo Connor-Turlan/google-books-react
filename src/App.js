@@ -22,7 +22,7 @@ function App() {
 
 	useEffect(() => {
 		searchAPI(query, setResults);
-		setResultActive(query.length > 0);
+		setResultActive(false);
 		setSearctWaiting(true && query.length > 0);
 	}, [query]);
 
