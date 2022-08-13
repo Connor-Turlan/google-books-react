@@ -73,6 +73,7 @@ A search engine using the Google Books API.
 ## Future Plans
 
 -   Transfer all functionality from the original project. [Google Books API](https://github.com/Connor-Turlan/google-books-api)
+-   React takes a long time to install and start - migrate the project to a more lightweight framework such as Vite.js.
 
 ## Similar Projects
 
