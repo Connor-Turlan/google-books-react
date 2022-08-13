@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Google Books API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="Preview.png" height="500px" width="500px" />
 
-## Available Scripts
+<button style="border: 1px solid white; border-radius:5px; padding: 10px 20px; background-color:white;"><a href="https://connor-turlan.github.io/google-books-api/">View the Project</a></button>
 
-In the project directory, you can run:
+## Setup
 
-### `npm start`
+Clone the project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`git clone https://github.com/Connor-Turlan/google-books-react.git`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+CD into the project root.
 
-### `npm test`
+`cd google-books-react`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run:
 
-### `npm run build`
+`npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Once installation is complete, you can run:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To begin the application.
 
-### `npm run eject`
+## MVP
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### The below MVP is identical to the MVP for the original Google Books API project.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create a page that allows users to search for books
+Page should include the following:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+-   Header section introducing the page
+-   Form containing a text input and a submit / search button
+-   A grid of books
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    Instructions:
 
-## Learn More
+-   When the submit button is clicked you need the request books from the Google books API using the input value as your query string
+-   The books that you receive should be rendered in the books grid.
+-   Each book in the grid should have an image, author, title and description
+-   The grid should be responsive on different screen sizes
+-   You should use async / await for your request code, NOT .then
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Styling (required):
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This application should look good, take some time to pick a palette and plan out your design. You can use tools like Figma or wireframe pro to plan what your application is going to look like.
+Styling must use BEM, and each block should have its own SCSS file Your palette should use variables
 
-### Code Splitting
+Application Design (required):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-   You should separate DOM functions and non-DOM functions in different modules.
+-   Write as many non-DOM functions as you can Functions should do 1 thing, and should be as pure and reusable as possible
+-   Always use iterators over loops
+-   Always parametrize and abstract large pieces of duplicate code.
 
-### Analyzing the Bundle Size
+Additionally:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+-   Give feedback to the user when no book results can be found for the query.
+-   When a user clicks a book in the grid, a modal should appear with more book information, think about release, publish date, country, languages, etc.
 
-### Making a Progressive Web App
+## Goals
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+A search engine using the Google Books API.
 
-### Advanced Configuration
+## Known Issues
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+-   No currently known issues.
 
-### Deployment
+## Retrospective
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Future Plans
 
-### `npm run build` fails to minify
+-   Transfer all functionality from the original project. [Google Books API]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Similar Projects
+
+[Google Books API]()
+
+-   A front-end presentation of the Google Books API.
+
+## License
+
+No license required.
+
+## Contributions
+
+Made by Connor Turlan 2022.
