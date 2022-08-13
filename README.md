@@ -72,11 +72,11 @@ A search engine using the Google Books API.
 
 ## Future Plans
 
--   Transfer all functionality from the original project. [Google Books API]()
+-   Transfer all functionality from the original project. [Google Books API](https://github.com/Connor-Turlan/google-books-api)
 
 ## Similar Projects
 
-[Google Books API]()
+[Google Books API](https://github.com/Connor-Turlan/google-books-api)
 
 -   A front-end presentation of the Google Books API.
 
